@@ -1,0 +1,59 @@
+<div class="container">
+    <h2>Sales</h2>
+  
+    <div class="button-container">
+      <button mat-raised-button color="primary" (click)="openCreateSaleModal()">+ New</button>
+      <button mat-raised-button color="warn" (click)="logout()">Logout</button>
+    </div>
+  
+    <table mat-table [dataSource]="sales" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let sale"> {{ sale.number }} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="customer">
+        <th mat-header-cell *matHeaderCellDef> Customer </th>
+        <td mat-cell *matCellDef="let sale"> {{ getCustomerName(sale.customerId) }} </td>        
+      </ng-container>
+  
+      <ng-container matColumnDef="branch">
+        <th mat-header-cell *matHeaderCellDef> Branch </th>
+        <td mat-cell *matCellDef="let sale"> {{ getBranchName(sale.branchId) }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="totalAmount">
+        <th mat-header-cell *matHeaderCellDef>Total</th>
+        <td mat-cell *matCellDef="let sale"> {{ sale.totalAmount | currency }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="discount">
+        <th mat-header-cell *matHeaderCellDef>Discount</th>
+        <td mat-cell *matCellDef="let sale"> {{ sale.discount | currency }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Canceled?</th>
+        <td mat-cell *matCellDef="let sale">
+          {{ sale.cancelled ? 'Yes' : 'No' }}
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let sale">
+          <button mat-icon-button color="accent" (click)="openEditSaleModal(sale)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="cancelSale(sale.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="['id', 'customer', 'branch', 'totalAmount', 'discount', 'status', 'actions']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['id', 'customer', 'branch', 'totalAmount', 'discount', 'status', 'actions'];"></tr>
+    </table>
+  </div>
+  

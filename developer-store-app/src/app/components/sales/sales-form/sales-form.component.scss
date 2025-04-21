@@ -1,0 +1,26 @@
+.item-container {
+    display: flex;
+    gap: 12px; /* Espaço entre os campos do item */
+    align-items: center;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 16px; /* Adiciona espaçamento entre os campos */
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  
+  table {
+    width: 100%;
+    margin-top: 15px;
+  }
+  
+  h2 {
+    margin: 10px;
+  }

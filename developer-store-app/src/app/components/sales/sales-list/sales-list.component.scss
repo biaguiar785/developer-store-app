@@ -1,0 +1,33 @@
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    margin-bottom: 15px;
+  }
+  
+  table {
+    width: 100%;
+  }
+
+.button-container {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.button-container button:last-child {
+  margin-left: auto;
+}
