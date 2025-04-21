@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Sale } from '../models/sale';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,44 @@ export class MockDataService {
     { id: '3240f025-7599-4690-9a37-d3ba6baf0495', name: 'Product 4' }
   ];  
 
+  private sales: Sale[] = [
+    {
+      id: 1,
+      number: 1001,
+      customerId: 'c677518c-b66a-4a5e-9be2-8840cacdc17e',
+      branchId: 'd4d46f75-f91d-4130-9bb9-a1305867bf3b',
+      totalAmount: 300,
+      discount: 20,
+      canceled: false,
+      items: [
+        {
+          productId: 101,
+          quantity: 2,
+          price: 50,
+          totalAmount: 100,
+          discount: 10,
+          isCanceled: false
+        },
+        {
+          productId: 102,
+          quantity: 1,
+          price: 120,
+          totalAmount: 120,
+          discount: 5,
+          isCanceled: false
+        },
+        {
+          productId: 103,
+          quantity: 2,
+          price: 50,
+          totalAmount: 100,
+          discount: 5,
+          isCanceled: false
+        }
+      ]
+    }
+  ];
+
   getCustomers() {
     return this.customers;
   }
@@ -34,5 +73,9 @@ export class MockDataService {
 
   getProducts() {
     return this.products;
+  }
+
+  getSales(): Sale[] {
+    return this.sales;
   }
 }

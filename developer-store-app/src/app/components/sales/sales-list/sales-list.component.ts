@@ -43,16 +43,17 @@ export class SalesListComponent {
   ){}
 
   ngOnInit(): void{
-    // this.loadSales();
+    this.loadSales();
     this.customers = this.mockDataService.getCustomers();
     this.branches = this.mockDataService.getBranches();
   }
 
-  // loadSales(){
-  //   this.saleService.getAll().subscribe((data)=> {
-  //     this.sales = data;
-  //   });
-  // }
+  loadSales(){
+    this.sales = this.mockDataService.getSales();
+    this.saleService.getAll().subscribe((data)=> {
+      this.sales = data;
+    });
+  }
 
   openCreateSaleModal() {
     const dialogRef = this.dialog.open(SalesFormComponent, {
@@ -64,7 +65,7 @@ export class SalesListComponent {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.saleService.create(result).subscribe(() => {
-          // this.loadSales();
+          this.loadSales();
         });
       }
     });
@@ -81,7 +82,7 @@ export class SalesListComponent {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.saleService.update(result).subscribe(() => {
-          // this.loadSales();
+          this.loadSales();
         });        
       }
     });
@@ -96,7 +97,7 @@ export class SalesListComponent {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.saleService.cancel(id).subscribe(() =>{
-          // this.loadSales();
+          this.loadSales();
         });
       }
     });    

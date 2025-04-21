@@ -1,5 +1,5 @@
 <mat-card class="container">
-    <h2 mat-dialog-title>{{ isEditingSale ? 'Update Sale' : 'New Sale' }}</h2>
+    <h2 mat-dialog-title>{{ isEditingSale ? 'Update Sale' : 'Add Sale' }}</h2>
     
     <form [formGroup]="saleForm" (ngSubmit)="save()" style="margin: 10px;">
 
@@ -51,7 +51,6 @@
         </div>     
       </form>
   
-      <!-- table of added items -->
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         
         <ng-container matColumnDef="productId">
@@ -90,8 +89,8 @@
       </table>
 
       <div class="buttons">
-        <button mat-button type="button" (click)="dialogRef.close()">Cancel</button>
-        <button mat-raised-button color="primary" type="submit" [disabled]="saleForm.invalid">Save</button>
+        <button mat-raised-button type="button" (click)="dialogRef.close()">Cancel</button>
+        <button mat-flat-button color="primary" type="submit" [disabled]="saleForm.invalid">Save</button>
       </div>
     </form>
 </mat-card>

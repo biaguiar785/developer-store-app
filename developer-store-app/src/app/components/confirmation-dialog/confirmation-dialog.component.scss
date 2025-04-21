@@ -1,0 +1,35 @@
+.mat-dialog-container {
+    padding: 24px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    margin: 14px;    
+}
+
+p {
+    font-size: 17px;
+    color: red;
+    margin-bottom: 20px;
+}
+
+.mat-dialog-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    gap: 15px; 
+}
+  
+button {
+    min-width: 120px; 
+    padding: 10px 18px;
+    font-size: 18px;
+    border-radius: 8px; 
+    transition: 0.3s ease-in-out; 
+}
+  
